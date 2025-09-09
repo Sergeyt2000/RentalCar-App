@@ -1,0 +1,6 @@
+.filterContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 84px auto 56px auto;
+}
