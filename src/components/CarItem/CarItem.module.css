@@ -1,0 +1,76 @@
+.card {
+  height: 424px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.descriptionWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.image {
+  width: 100%;
+  height: 268px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+.titleWrapper {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+.title span {
+  color: var(--button);
+}
+.price {
+  margin-right: 11px;
+}
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--gray);
+}
+.descriptionItem {
+  display: flex;
+  gap: 6px;
+
+  & span:not(:last-child)::after,
+  &:first-child span::after {
+    content: "";
+    margin-left: 6px;
+    border-right: 1px solid var(--gray-light);
+  }
+}
+.button {
+  width: 100%;
+}
+
+.heartIcon {
+  width: 16px;
+  height: 16px;
+  stroke: #F2F4F7;
+  fill: none;
+}
+
+.heartBtn {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}

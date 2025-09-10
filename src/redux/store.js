@@ -11,7 +11,8 @@ import { configureStore } from "@reduxjs/toolkit";
 // } from "redux-persist";
 import brandsReducer from "./brands/slice";
 import carsReducer from "./cars/slice";
-import filtersReducer from "./filter/slice"
+import filtersReducer from "./filter/slice";
+import favoritesReducer from "./favorites/slice";
 
 
 export const store = configureStore({
@@ -21,6 +22,7 @@ export const store = configureStore({
     // carDetails: carDetailsReducer,
     brands: brandsReducer,
     filters: filtersReducer,
+    favorites: favoritesReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
