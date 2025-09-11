@@ -30,12 +30,8 @@ export default function Filter({ brands = [] }) {
   };
   
   const handleSubmit = (values) => {
-    // Object.entries(values).forEach(([name, value]) => {
-    //   dispatch(setFilters({ name, value }));
-    // });
     dispatch(setFilters(values));
     dispatch(fetchCars(values));
-    // dispatch(clearFilters());
   };
   return (
     <div className={css.filterContainer}>

@@ -17,7 +17,7 @@ export default function CatalogPage() {
   const brands = useSelector(selectBrands);
   const items = useSelector(selectCars);
   const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
+  const error = useSelector(selectError);  
   
   useEffect(() => {
     dispatch(fetchCars());

@@ -1,0 +1,40 @@
+.wrapper {
+  padding: 32px;
+  border: 1px solid #dadde1;
+  border-radius: 10px;
+  color: #101828;
+}
+.title {
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+}
+.text {
+  margin-bottom: 24px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #8d929a;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+/* .field {
+  position: relative;
+} */
+.input {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #8d929a;
+  background-color: #f7f7f7;
+  border: none;
+  outline: none;
+  border-radius: 12px;
+}
+
+

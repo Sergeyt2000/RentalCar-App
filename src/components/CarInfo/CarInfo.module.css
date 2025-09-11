@@ -1,0 +1,70 @@
+.carInfoWrapper {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}
+.carInfo {
+  margin-bottom: 68px;
+}
+.carTitle {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  color: #101828;
+  margin-bottom: 8px;
+}
+.carId {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #8d929a;
+  margin-left: 16px;
+}
+.location {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+.price {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  color: #3470ff;
+  margin-bottom: 32px;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.listItem {
+  display: flex;
+  gap: 8px;
+}
+.specBox {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.icon {
+  width: 16px;
+  height: 16px;
+}
+.specLine {
+  display: flex;
+  gap: 8px;
+}
+.conditions,
+.specifications,
+.functionalities {
+  margin-bottom: 68px;
+}

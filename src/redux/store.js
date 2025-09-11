@@ -13,13 +13,14 @@ import brandsReducer from "./brands/slice";
 import carsReducer from "./cars/slice";
 import filtersReducer from "./filter/slice";
 import favoritesReducer from "./favorites/slice";
+import carDetailsReducer from "./carDetails/slice"
 
 
 export const store = configureStore({
   reducer: {
     cars: carsReducer,
     // favorites: persistedFavoritesReducer,
-    // carDetails: carDetailsReducer,
+    carDetails: carDetailsReducer,
     brands: brandsReducer,
     filters: filtersReducer,
     favorites: favoritesReducer,

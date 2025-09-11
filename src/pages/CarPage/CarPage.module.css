@@ -1,0 +1,10 @@
+.carPage {
+    display: flex;
+    gap: 72px;
+}
+.leftColumn {
+    width: 640px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}

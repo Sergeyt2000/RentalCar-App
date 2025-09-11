@@ -5,12 +5,13 @@ export const fetchCars = createAsyncThunk(
   "cars/fetchCars",
   async (filters, thunkAPI) => {
     try {
-       const params = {
+      // const { page = 1, ...rest } = filters;
+      const params = {
+         page: 1,
          brand: filters?.brand,
          price: filters?.price,
          mileageFrom: filters?.mileageFrom,
          mileageTo: filters?.mileageTo,
-         page: filters?.page || 1,
        };
        Object.keys(params).forEach(
          (key) =>
@@ -24,3 +25,16 @@ export const fetchCars = createAsyncThunk(
     }
   }
 );
+
+export const fetchMoreCars = createAsyncThunk(
+  "cars/fetchMoreCars",
+  async (queryParams = {}, thunkAPI) => {
+    try {
+      const response = await axios.get("/cars", { params: queryParams });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response);
+    }
+  }
+);
+

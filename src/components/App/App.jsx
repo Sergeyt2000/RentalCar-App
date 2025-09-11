@@ -9,11 +9,13 @@ function App() {
   return (
     <div className={css.container}>
       <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/catalog" element={<CatalogPage />} />
-        <Route path="/catalog/:id" element={<CarPage />} />
-      </Routes>
+      <div className={css.mainContainer}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/catalog" element={<CatalogPage />} />
+          <Route path="/catalog/:id" element={<CarPage />} />
+        </Routes>
+      </div>
     </div>
   );
 }

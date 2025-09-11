@@ -1,0 +1,15 @@
+.loadMoreBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 51px;
+  border: 1px solid #3470ff;
+  border-radius: 12px;
+  cursor: pointer;
+  margin: 80px auto 0;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+  background-color: #fff;
+}
