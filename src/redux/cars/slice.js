@@ -20,7 +20,9 @@ const carsSlice = createSlice({
       state.items.page = action.payload;
     },
     resetCars(state) {
-      state.items = { cars: [], totalCars: 0, page: 1, totalPages: 1 };
+      state.items = { ...initialState.items };
+      state.isLoading = false;
+      state.error = null;
     },
   },
   extraReducers: (builder) => {
@@ -29,13 +31,28 @@ const carsSlice = createSlice({
         state.isLoading = true;
         state.error = null;
       })
+      // .addCase(fetchCars.fulfilled, (state, action) => {
+      //   // state.items = action.payload;
+      //   state.items.cars = action.payload.cars;
+      //   state.items.totalCars = action.payload.totalCars;
+      //   state.items.totalPages = action.payload.totalPages;
+      //   state.isLoading = false;
+      //   clearFilters();
+      // })
       .addCase(fetchCars.fulfilled, (state, action) => {
-        // state.items = action.payload;
-        state.items.cars = action.payload.cars;
+        const { page } = action.meta.arg || {};
+        const isFirstPage = page <= 1;
+
+        if (isFirstPage) {
+          state.items.cars = action.payload.cars;
+          clearFilters(); 
+        } else {
+          state.items.cars = [...state.items.cars, ...action.payload.cars];
+        }
         state.items.totalCars = action.payload.totalCars;
         state.items.totalPages = action.payload.totalPages;
+        state.items.page = page || 1;
         state.isLoading = false;
-        clearFilters();
       })
       .addCase(fetchCars.rejected, (state, action) => {
         state.isLoading = false;

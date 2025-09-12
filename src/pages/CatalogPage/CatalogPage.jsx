@@ -6,7 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchBrands } from "../../redux/brands/operations.js";
 import { fetchCars } from "../../redux/cars/operations.js";
 import { selectBrands } from "../../redux/brands/selectors.js";
-import { selectCars, selectIsLoading, selectError } from "../../redux/cars/selectors.js";
+import {
+  selectCars,
+  selectIsLoading,
+  selectError,
+  // selectPage,
+} from "../../redux/cars/selectors.js";
+import { selectFilters } from "../../redux/filter/selectors.js";
+import { resetCars, setPage } from "../../redux/cars/slice.js";
 import axios from "axios";
 
 axios.defaults.baseURL = "https://car-rental-api.goit.global";
@@ -17,21 +24,36 @@ export default function CatalogPage() {
   const items = useSelector(selectCars);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-  
+  // const currentPage = useSelector(selectPage);
+  const filters = useSelector(selectFilters);
+
   useEffect(() => {
-    dispatch(fetchCars());
+    // dispatch(fetchCars());
     dispatch(fetchBrands());
   }, [dispatch]);
 
+  useEffect(() => {
+    dispatch(resetCars());
+    dispatch(setPage(1));
+    const fetchParams = { ...filters, page: 1 };
+    dispatch(fetchCars(fetchParams));
+  }, [dispatch, filters]);
+
+  // useEffect(() => {
+  //   if (currentPage > 1) {
+  //     const fetchParams = { ...filters, page: currentPage };
+  //     dispatch(fetchCars(fetchParams));
+  //   }
+  // }, [dispatch, currentPage, filters]);
+
+  console.log("cars",items);
   
   return (
     <div className={css.catalogPage}>
       <Filter brands={brands} />
       {isLoading && <p className={css.loading}>Loading...</p>}
       {error && <p className={css.error}>Error: {error}</p>}
-      {!isLoading && !error && (
-        <CarList cars={items.cars} />
-      )}
+      {!isLoading && !error && <CarList cars={items.cars} />}
     </div>
   );
 }
