@@ -5,5 +5,7 @@
     padding: 26px 120px;
     background-color: #f2f4f7;
     margin: 0 auto;
+    box-sizing: border-box;
+    width: 100%;
     /* max-width: 1440px; */
 }

@@ -14,9 +14,7 @@ export default function CarPage() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const car = useSelector(selectCarById);
-  const isLoading = useSelector(selectIsLoading);
-  // console.log("car", car);
-  
+  const isLoading = useSelector(selectIsLoading);  
   
     useEffect(() => {
     if (id) {dispatch(fetchCarById(id));}

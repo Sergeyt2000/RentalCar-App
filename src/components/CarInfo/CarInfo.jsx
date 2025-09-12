@@ -34,7 +34,7 @@ export default function CarInfo({ car }) {
             <use href="/sprite.svg#icon-location" />
           </svg>
           <p>
-            {location?.city}, {location?.country} <span>Mileage: {car.mileage.toLocaleString('uk-UA')} km</span>
+            {location?.city}, {location?.country} <span className={css.mileage}>Mileage: {car.mileage.toLocaleString('uk-UA')} km</span>
           </p>
         </div>
         <p className={css.price}>${car.rentalPrice}</p>

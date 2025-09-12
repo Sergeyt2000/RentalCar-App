@@ -49,13 +49,6 @@
 .descriptionItem {
   display: flex;
   gap: 6px;
-
-  & span:not(:last-child)::after,
-  &:first-child span::after {
-    content: "";
-    margin-left: 6px;
-    border-right: 1px solid #dadde1;
-  }
 }
 .button {
   width: 100%;
@@ -68,6 +61,7 @@
   line-height: 1.25;
   color: #fff;
   border: none;
+  cursor: pointer;
 }
 
 .heartIcon {
@@ -86,3 +80,7 @@
   padding: 0;
   cursor: pointer;
 }
+.vertLine::before {
+  content: "";
+    border-right: 1px solid #dadde1;
+  }

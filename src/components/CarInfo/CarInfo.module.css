@@ -28,6 +28,9 @@
   gap: 4px;
   margin-bottom: 16px;
 }
+.mileage {
+  margin-left: 16px;
+}
 .price {
   font-weight: 600;
   font-size: 24px;

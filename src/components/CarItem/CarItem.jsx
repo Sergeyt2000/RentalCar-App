@@ -63,18 +63,14 @@ export default function CarItem({ car }) {
           </div>
           <div className={css.description}>
             <p className={css.descriptionItem}>
-              {location?.city} {location?.country}, {car.rentalCompany}
-              {/* {[carInfo.city, carInfo.country, car.rentalCompany].map(
-                (el, i) => (
-                  <span key={i}>{el}</span>
-                )
-              )} */}
+              {location?.city} <span className={css.vertLine}></span>
+              {location?.country}
+              <span className={css.vertLine}></span>
+              {car.rentalCompany} <span className={css.vertLine}></span>
             </p>
             <p className={css.descriptionItem}>
-              {car.type}, {car.mileage.toLocaleString("uk-UA")} km
-              {/* {[car.type, carInfo.mileage].map((el, i) => (
-                <span key={i}>{el}</span>
-              ))} */}
+              {car.type} <span className={css.vertLine}></span>{" "}
+              {car.mileage.toLocaleString("uk-UA")} km
             </p>
           </div>
         </div>

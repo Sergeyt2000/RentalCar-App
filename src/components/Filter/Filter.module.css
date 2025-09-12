@@ -2,7 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 84px auto 56px auto;
+  /* margin: 84px auto 56px auto; */
+  margin-bottom: 56px;
 }
 .filterForm {
   display: flex;
@@ -56,6 +57,7 @@
   background-color: #3470ff;
   color: #fff;
   border: none;
+  cursor: pointer;
 }
 .error {
   color: red;

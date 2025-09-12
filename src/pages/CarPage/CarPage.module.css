@@ -1,10 +1,17 @@
 .carPage {
     display: flex;
     gap: 72px;
+    width: 1200px;
+    padding-top: 84px;
+    padding-bottom: 104px;
+    margin: 0 auto;
 }
 .leftColumn {
     width: 640px;
     display: flex;
     flex-direction: column;
     gap: 40px;
+}
+.rightColumn {
+    width: 488px;
 }

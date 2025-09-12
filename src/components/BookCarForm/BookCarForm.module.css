@@ -50,6 +50,7 @@
   font-size: 16px;
   line-height: 1.25;
   margin-top: 24px;
+  cursor: pointer;
 }
 .error {
   color: rgb(145, 4, 4);
