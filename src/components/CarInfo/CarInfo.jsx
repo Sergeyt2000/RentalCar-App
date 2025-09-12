@@ -1,16 +1,32 @@
 import css from "./CarInfo.module.css";
-// import { useSelector } from "react-redux";
-// import { selectIsLoading } from "../../redux/carDetails/selectors.js";
+import { useSelector } from "react-redux";
+import {
+  selectIsLoading,
+  selectError,
+} from "../../redux/carDetails/selectors.js";
+import { getLocation } from "../../utils/getLocation.js"
 
 export default function CarInfo({ car }) {
-  // const isLoading = useSelector(selectIsLoading);
-  // if (isLoading) return <div>Loading...</div>;
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
+  if (isLoading) return <div>Loading...</div>;
 
+  if (!car || Object.keys(car).length === 0 || !car.address)
+    return <p>No car info</p>;
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
+  const location = getLocation(car);
+  if (!location) {
+    return <p>Invalid location data</p>;
+  }
+  
   return (
     <div className={css.carInfoWrapper}>
       <div className={css.carInfo}>
         <h2 className={css.carTitle}>
-          {car.barnd} {car.model}, {car.year}
+          {car.brand} {car.model}, {car.year}
           <span className={css.carId}>Id: {car.id.slice(0, 4)}</span>
         </h2>
         <div className={css.location}>
@@ -18,7 +34,7 @@ export default function CarInfo({ car }) {
             <use href="/sprite.svg#icon-location" />
           </svg>
           <p>
-            {car.city}, {car.country} <span>Mileage: {car.mileage} km</span>
+            {location?.city}, {location?.country} <span>Mileage: {car.mileage.toLocaleString('uk-UA')} km</span>
           </p>
         </div>
         <p className={css.price}>${car.rentalPrice}</p>

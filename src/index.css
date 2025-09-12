@@ -67,6 +67,12 @@ button:focus-visible {
   }
 } */
 
+/* #root {
+  max-width: 1440px;
+  margin: 0 auto;
+  text-align: center;
+} */
+
 html,
 body {
   height: 100%;
@@ -112,5 +118,4 @@ input {
 a {
   color: currentColor;
   text-decoration: none;
-
 }

@@ -2,7 +2,8 @@ import css from "./CarItem.module.css"
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavorite, removeFavorite } from "../../redux/favorites/slice.js"
-import { selectFavorites} from "../../redux/favorites/selectors.js"
+import { selectFavorites } from "../../redux/favorites/selectors.js"
+import { getLocation } from "../../utils/getLocation.js"
 
  
 export default function CarItem({ car }) {
@@ -18,14 +19,12 @@ export default function CarItem({ car }) {
   };
   const handleClickFavorite = () => {
     if (isFavorite) {
-      dispatch(removeFavorite(car.id));
-      console.log("del from fav");
-      
+      dispatch(removeFavorite(car.id));      
     } else {
       dispatch(addFavorite(car));
-      console.log("added to fav");
     }
   };
+  const location = getLocation(car);
 
   return (
     <div className={css.card}>
@@ -46,7 +45,7 @@ export default function CarItem({ car }) {
             width={16}
             height={16}
             aria-label="heart"
-          >            
+          >
             {!isFavorite ? (
               <use href="/sprite.svg#icon-heart" />
             ) : (
@@ -64,7 +63,7 @@ export default function CarItem({ car }) {
           </div>
           <div className={css.description}>
             <p className={css.descriptionItem}>
-              Location, company
+              {location?.city} {location?.country}, {car.rentalCompany}
               {/* {[carInfo.city, carInfo.country, car.rentalCompany].map(
                 (el, i) => (
                   <span key={i}>{el}</span>
@@ -72,7 +71,7 @@ export default function CarItem({ car }) {
               )} */}
             </p>
             <p className={css.descriptionItem}>
-              Car type, milesage
+              {car.type}, {car.mileage.toLocaleString("uk-UA")} km
               {/* {[car.type, carInfo.mileage].map((el, i) => (
                 <span key={i}>{el}</span>
               ))} */}

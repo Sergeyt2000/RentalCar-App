@@ -1,14 +1,8 @@
-#root {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
 .container {
-  max-width: 1440px;
+  /* max-width: 1440px; */
   margin: 0 auto;
-  padding: 0 16px;
+  /* padding: 0 16px; */
 }
-.mainContainer {
+/* .mainContainer {
   padding: 84px 120px 104px;
-}
+} */

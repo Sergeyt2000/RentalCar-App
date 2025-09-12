@@ -24,13 +24,16 @@
 .titleWrapper {
   display: flex;
   justify-content: space-between;
+}
+.title {
   font-size: 16px;
   font-weight: 500;
   line-height: 1.25;
 }
 .title span {
-  color: var(--button);
+  color: #3470ff;
 }
+
 .price {
   margin-right: 11px;
 }
@@ -41,7 +44,7 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 1.33;
-  color: var(--gray);
+  color: #8d929a;
 }
 .descriptionItem {
   display: flex;
@@ -51,17 +54,26 @@
   &:first-child span::after {
     content: "";
     margin-left: 6px;
-    border-right: 1px solid var(--gray-light);
+    border-right: 1px solid #dadde1;
   }
 }
 .button {
   width: 100%;
+  border-radius: 12px;
+  /* padding: 12px 99px; */
+  height: 44px;
+  background-color: #3470ff;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #fff;
+  border: none;
 }
 
 .heartIcon {
   width: 16px;
   height: 16px;
-  stroke: #F2F4F7;
+  stroke: #f2f4f7;
   fill: none;
 }
 

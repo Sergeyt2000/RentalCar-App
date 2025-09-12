@@ -30,7 +30,10 @@ const carsSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchCars.fulfilled, (state, action) => {
-        state.items = action.payload;
+        // state.items = action.payload;
+        state.items.cars = action.payload.cars;
+        state.items.totalCars = action.payload.totalCars;
+        state.items.totalPages = action.payload.totalPages;
         state.isLoading = false;
         clearFilters();
       })

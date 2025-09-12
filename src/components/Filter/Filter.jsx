@@ -41,48 +41,65 @@ export default function Filter({ brands = [] }) {
         onSubmit={handleSubmit}
       >
         {/* {({ errors, touched }) => ( */}
-        <Form>
-          <label htmlFor="brand">Car Brand</label>
-          <Field as="select" name="brand">
-            <option value="">Choose a brand</option>
-            {brands.map((brand) => (
-              <option key={brand} value={brand}>
-                {brand}
-              </option>
-            ))}
-          </Field>
+        <Form className={css.filterForm}>
+          <div className={css.filterField}>
+            <label className={css.label} htmlFor="brand">
+              Car Brand
+            </label>
+            <Field className={css.select} as="select" name="brand">
+              <option value="">Choose a brand</option>
+              {brands.map((brand) => (
+                <option key={brand} value={brand}>
+                  {brand}
+                </option>
+              ))}
+            </Field>
+          </div>
 
-          <label htmlFor="price">Price/1 hour</label>
-          <Field as="select" name="price">
-            <option value="">Choose a price</option>
-            <option value="30">30$</option>
-            <option value="40">40$</option>
-            <option value="50">50$</option>
-            <option value="60">60$</option>
-            <option value="70">70$</option>
-            <option value="80">80$</option>
-          </Field>
+          <div className={css.filterField}>
+            <label className={css.label} htmlFor="price">
+              Price/1 hour
+            </label>
+            <Field className={css.select} as="select" name="price">
+              <option value="">Choose a price</option>
+              <option value="30">30$</option>
+              <option value="40">40$</option>
+              <option value="50">50$</option>
+              <option value="60">60$</option>
+              <option value="70">70$</option>
+              <option value="80">80$</option>
+            </Field>
+          </div>
 
-          <label htmlFor="mileageFrom">Car mileage / km</label>
-          <Field name="mileageFrom" placeholder="From"></Field>
-          <ErrorMessage
-            name="mileageFrom"
-            component="div"
-            className={css.error}
-          />
-          {/* {errors.mileageFrom && touched.mileageFrom && (
-              <div className={css.error}>{errors.mileageFrom}</div>
-            )} */}
+          <div className={css.filterField}>
+            <label className={css.label} htmlFor="mileageFrom">
+              Car mileage / km
+            </label>
+            <div>
+              <Field
+                className={css.input}
+                name="mileageFrom"
+                placeholder="From"
+              ></Field>
+              <ErrorMessage
+                name="mileageFrom"
+                component="div"
+                className={css.error}
+              />
+              <Field
+                className={css.input}
+                name="mileageTo"
+                placeholder="To"
+              ></Field>
+              <ErrorMessage
+                name="mileageTo"
+                component="div"
+                className={css.error}
+              />
+            </div>
+          </div>
 
-          {/* <label htmlFor="mileageTo"></label> */}
-          <Field name="mileageTo" placeholder="To"></Field>          
-          <ErrorMessage
-            name="mileageTo"
-            component="div"
-            className={css.error}
-          />
-
-          <button type="submit">Search</button>
+          <button className={css.btn} type="submit">Search</button>
         </Form>
         {/* )} */}
       </Formik>

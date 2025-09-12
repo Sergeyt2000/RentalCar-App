@@ -15,26 +15,27 @@ export default function CarPage() {
   const dispatch = useDispatch();
   const car = useSelector(selectCarById);
   const isLoading = useSelector(selectIsLoading);
-  console.log("car", car);
-
-  useEffect(() => {
-    dispatch(fetchCarById(id));
+  // console.log("car", car);
+  
+  
+    useEffect(() => {
+    if (id) {dispatch(fetchCarById(id));}
   }, [dispatch, id]);
-
-  return (
-    <>
-      {isLoading && <div>Loading</div>}
-      {!isLoading && (
-        <div className={css.carPage}>
-          <div className={css.leftColumn}>
-            <img src={car.img} alt={`${car.brand} ${car.model}`}></img>
-            <BookCarForm />
-          </div>
-          <div className={css.rightColumn}>
-            <CarInfo car={car} />
-          </div>
-        </div>
-      )}
-    </>
-  );
+  
+ return (
+   <>
+     {isLoading && <div>Loading</div>}
+     {!isLoading && car && Object.keys(car).length > 0 && (
+       <div className={css.carPage}>
+         <div className={css.leftColumn}>
+           <img src={car.img} alt={`${car.brand} ${car.model}`}></img>
+           <BookCarForm />
+         </div>
+         <div className={css.rightColumn}>
+           <CarInfo car={car} />
+         </div>
+       </div>
+     )}
+   </>
+ );
 }

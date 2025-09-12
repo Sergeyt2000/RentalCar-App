@@ -7,7 +7,6 @@ import { fetchBrands } from "../../redux/brands/operations.js";
 import { fetchCars } from "../../redux/cars/operations.js";
 import { selectBrands } from "../../redux/brands/selectors.js";
 import { selectCars, selectIsLoading, selectError } from "../../redux/cars/selectors.js";
-
 import axios from "axios";
 
 axios.defaults.baseURL = "https://car-rental-api.goit.global";
@@ -17,19 +16,22 @@ export default function CatalogPage() {
   const brands = useSelector(selectBrands);
   const items = useSelector(selectCars);
   const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);  
+  const error = useSelector(selectError);
   
   useEffect(() => {
     dispatch(fetchCars());
     dispatch(fetchBrands());
   }, [dispatch]);
 
+  
   return (
     <div className={css.catalogPage}>
       <Filter brands={brands} />
       {isLoading && <p className={css.loading}>Loading...</p>}
       {error && <p className={css.error}>Error: {error}</p>}
-      {!isLoading && !error && <CarList cars={items.cars} />}
+      {!isLoading && !error && (
+        <CarList cars={items.cars} />
+      )}
     </div>
   );
 }

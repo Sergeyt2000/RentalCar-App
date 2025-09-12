@@ -1,3 +1,6 @@
+.carListContainer {
+    width: 1200px;
+}
 .carlist {
     display: flex;
     flex-wrap: wrap;
@@ -6,5 +9,5 @@
     justify-content: center;
 }
 .caritem {
-    width: calc((100% - 3*32px) / 4);
+    width: calc((100% - (3*32px)) / 4);
 }

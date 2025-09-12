@@ -4,4 +4,6 @@
     align-items: center;
     padding: 26px 120px;
     background-color: #f2f4f7;
+    margin: 0 auto;
+    /* max-width: 1440px; */
 }

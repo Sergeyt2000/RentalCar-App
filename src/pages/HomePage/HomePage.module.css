@@ -1,7 +1,8 @@
 .homepage {
-  background-image: url("../../../public//img/Hero.jpg");
+  background-image: url("/img/Hero.jpg");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   width: 100%;
   /* height: 100vh; */
   /* padding: 439px 328px 60px 328px; */

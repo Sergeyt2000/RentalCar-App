@@ -20,11 +20,12 @@
 .form {
   display: flex;
   flex-direction: column;
+}
+.inputsFields {
+  display: flex;
+  flex-direction: column;
   gap: 16px;
 }
-/* .field {
-  position: relative;
-} */
 .input {
   width: 100%;
   padding: 14px 20px;
@@ -36,5 +37,21 @@
   outline: none;
   border-radius: 12px;
 }
-
-
+.button {
+  border-radius: 12px;
+  padding: 12px 51px;
+  width: 156px;
+  height: 44px;
+  background-color: #3470ff;
+  border: none;
+  margin: 0 auto;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  margin-top: 24px;
+}
+.error {
+  color: rgb(145, 4, 4);
+  font-size: 10px;
+}

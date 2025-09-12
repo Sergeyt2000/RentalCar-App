@@ -5,7 +5,6 @@ export const fetchCars = createAsyncThunk(
   "cars/fetchCars",
   async (filters, thunkAPI) => {
     try {
-      // const { page = 1, ...rest } = filters;
       const params = {
          page: 1,
          brand: filters?.brand,

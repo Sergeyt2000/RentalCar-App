@@ -1,6 +1,63 @@
 .filterContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 84px auto 56px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 84px auto 56px auto;
+}
+.filterForm {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.filterField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.filterField select {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+  appearance: none;
+}
+.filterField select:active {
+  border-radius: 5px;
+  border: none;
+}
+.label {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  color: #8d929a;
+}
+.input {
+}
+.input::placeholder {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}
+.select {
+  border-radius: 12px;
+  padding: 12px 16px;
+  width: 204px;
+  height: 44px;
+  background-color: #f7f7f7;
+  border: none;
+  outline: none;
+}
+.btn {
+  border-radius: 12px;
+  padding: 12px 51px;
+  width: 156px;
+  height: 44px;
+  background-color: #3470ff;
+  color: #fff;
+  border: none;
+}
+.error {
+  color: red;
+  font-size: 10px;
 }

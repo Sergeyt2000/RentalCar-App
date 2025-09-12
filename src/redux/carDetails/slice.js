@@ -4,7 +4,7 @@ import { fetchCarById } from "./operations.js"
 const carDetailsSlice = createSlice({
     name: "carDetails",
     initialState: {
-        item: {},
+        item: null,
         isLoading: false,
         error: null,
     },

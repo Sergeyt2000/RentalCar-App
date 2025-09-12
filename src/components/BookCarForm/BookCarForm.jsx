@@ -1,10 +1,17 @@
 import css from "./BookCarForm.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { initialValues, validationSchema } from "./formSchema.js";
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
 
 export default function BookCarForm() {
   const handleSubmit = (values, { resetForm }) => {
     console.log(values);
+    iziToast.success({
+      title: "OK",
+      message: "Form was sent successfully!",
+      position: "topRight",
+    });
     resetForm();
   };
   return (
@@ -18,47 +25,46 @@ export default function BookCarForm() {
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
-        {/* {({ setFieldValue, values }) => ( */}
         <Form className={css.form}>
-          <div className={css.field}>
-            <Field name="name" placeholder="Name*" className={css.input} />
-            <ErrorMessage name="name" component="p" className={css.error} />
-          </div>
-          <div className={css.field}>
+          <div className={css.inputsFields}>
+            <div className={css.field}>
+              <Field name="name" placeholder="Name*" className={css.input} />
+              <ErrorMessage name="name" component="p" className={css.error} />
+            </div>
+            <div className={css.field}>
+              <Field
+                name="email"
+                placeholder="Email*"
+                type="email"
+                className={css.input}
+              />
+              <ErrorMessage name="email" component="p" className={css.error} />
+            </div>
+            <div className={css.field}>
+              <Field
+                name="bookingDate"
+                placeholder="Booking date*"
+                className={css.input}
+              />
+              <ErrorMessage
+                name="bookingDate"
+                component="p"
+                className={css.error}
+              />
+            </div>
             <Field
-              name="email"
-              placeholder="Email*"
-              type="email"
+              name="comment"
+              placeholder="Comment"
+              as="textarea"
+              rows={3}
               className={css.input}
             />
-            <ErrorMessage name="email" component="p" className={css.error} />
           </div>
-          <div className={css.field}>
-            <Field
-              name="bookingDate"
-              placeholder="Booking date*"
-              className={css.input}
-            />
-            <ErrorMessage
-              name="bookingDate"
-              component="p"
-              className={css.error}
-            />
-          </div>
-
-          <Field
-            name="comment"
-            placeholder="Comment"
-            as="textarea"
-            rows={3}
-            className={css.input}
-          />
 
           <button className={css.button} type="submit">
             Send
           </button>
         </Form>
-        {/* )} */}
       </Formik>
     </div>
   );
