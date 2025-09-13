@@ -52,7 +52,7 @@ export default function CatalogPage() {
   return (
     <div className={css.catalogPage}>
       <Filter brands={brands} />
-      {isLoading && <p className={css.loading}><Loader /></p>}
+      {isLoading && <div className={css.loading}><Loader /></div>}
       {error && <p className={css.error}>Error: {error}</p>}
       {!isLoading && !error && <CarList cars={items.cars} />}
     </div>

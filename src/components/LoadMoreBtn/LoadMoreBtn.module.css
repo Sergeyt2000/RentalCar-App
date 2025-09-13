@@ -12,4 +12,9 @@
   line-height: 1.25;
   color: #101828;
   background-color: #fff;
+  transition: background-color 200ms ease-in-out;
+}
+.loadMoreBtn:hover,
+.loadMoreBtn:focus {
+  border: 1px solid #0b44cd;
 }

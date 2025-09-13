@@ -104,6 +104,11 @@ box-sizing: border-box;
   border: none;
   cursor: pointer;
   margin-top: auto;
+  transition: background-color 200ms ease-in-out;
+}
+.btn:hover,
+.btn:focus {
+  background-color: #0B44CD;
 }
 .error {
   color: red;

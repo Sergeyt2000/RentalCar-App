@@ -75,7 +75,7 @@ export default function CarItem({ car }) {
           </div>
         </div>
       </div>
-      <button type="button" className={css.button} onClick={handleClick}>
+      <button type="button" className={css.btn} onClick={handleClick}>
         Read more
       </button>
     </div>
