@@ -14,6 +14,7 @@ import {
 } from "../../redux/cars/selectors.js";
 import { selectFilters } from "../../redux/filter/selectors.js";
 import { resetCars, setPage } from "../../redux/cars/slice.js";
+import Loader from "../../components/Loader/Loader.jsx"
 import axios from "axios";
 
 axios.defaults.baseURL = "https://car-rental-api.goit.global";
@@ -51,7 +52,7 @@ export default function CatalogPage() {
   return (
     <div className={css.catalogPage}>
       <Filter brands={brands} />
-      {isLoading && <p className={css.loading}>Loading...</p>}
+      {isLoading && <p className={css.loading}><Loader /></p>}
       {error && <p className={css.error}>Error: {error}</p>}
       {!isLoading && !error && <CarList cars={items.cars} />}
     </div>

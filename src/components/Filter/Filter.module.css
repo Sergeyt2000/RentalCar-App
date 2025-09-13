@@ -1,6 +1,6 @@
 .filterContainer {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   /* margin: 84px auto 56px auto; */
   margin-bottom: 56px;
@@ -32,8 +32,53 @@
   line-height: 1.33;
   color: #8d929a;
 }
-.input {
+
+.inputFrom,
+.inputTo {
+  background-color: #f7f7f7;
+  border: none;
+  outline: none;
+  height: 44px;
+  /* width: 160px; */
+  padding: 12px 0;
+  box-sizing: border-box;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
 }
+
+.inputFrom {
+  border-right: 1px solid #dadde1;
+  width: 93px;
+}
+.inputTo {
+  border-radius: 0 12px 12px 0;
+  width: 114px;
+}
+
+.inputLabelFrom,
+.inputLabelTo {
+box-sizing: border-box;
+  background-color: #f7f7f7;
+  border: none;
+  outline: none;
+  height: 44px;
+  padding: 12px 0 12px 24px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #101828;
+}
+
+.inputLabelFrom {  
+  width: 67px;  
+  border-radius: 12px 0 0 12px;
+}
+.inputLabelTo {
+  width: 46px;
+}
+
 .input::placeholder {
   font-weight: 500;
   font-size: 16px;
@@ -58,6 +103,7 @@
   color: #fff;
   border: none;
   cursor: pointer;
+  margin-top: auto;
 }
 .error {
   color: red;

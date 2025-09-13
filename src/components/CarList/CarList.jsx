@@ -30,15 +30,15 @@ export default function CarList({ cars }) {
 
   
   return (
-    <div className={css.carListContainer}>
-      <ul className={css.carlist}>
-        {cars.map((car) => (
-          <li key={car.id} className={css.caritem}>
-            <CarItem car={car} />
-          </li>
-        ))}
-      </ul>
-      {page < totalPages && <LoadMoreBtn onLoadMore={onLoadMore} />}
-    </div>
-  );
+        <div className={css.carListContainer}>
+          <ul className={css.carlist}>
+            {cars.map((car) => (
+              <li key={car.id} className={css.caritem}>
+                <CarItem car={car} />
+              </li>
+            ))}
+          </ul>
+          {page < totalPages && <LoadMoreBtn onLoadMore={onLoadMore} />}
+        </div>
+  );      
 }

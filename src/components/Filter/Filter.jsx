@@ -40,7 +40,6 @@ export default function Filter({ brands = [] }) {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {/* {({ errors, touched }) => ( */}
         <Form className={css.filterForm}>
           <div className={css.filterField}>
             <label className={css.label} htmlFor="brand">
@@ -77,19 +76,24 @@ export default function Filter({ brands = [] }) {
             </label>
             <div>
               <Field
-                className={css.input}
+                className={css.inputLabelFrom}
+                name="From"
+                disabled
+                value="From"
+              />
+              <Field
+                className={css.inputFrom}
                 name="mileageFrom"
-                placeholder="From"
               ></Field>
               <ErrorMessage
                 name="mileageFrom"
                 component="div"
                 className={css.error}
               />
+              <Field className={css.inputLabelTo} name="To" disabled value="To" />
               <Field
-                className={css.input}
+                className={css.inputTo}
                 name="mileageTo"
-                placeholder="To"
               ></Field>
               <ErrorMessage
                 name="mileageTo"
@@ -99,9 +103,10 @@ export default function Filter({ brands = [] }) {
             </div>
           </div>
 
-          <button className={css.btn} type="submit">Search</button>
+          <button className={css.btn} type="submit">
+            Search
+          </button>
         </Form>
-        {/* )} */}
       </Formik>
     </div>
   );

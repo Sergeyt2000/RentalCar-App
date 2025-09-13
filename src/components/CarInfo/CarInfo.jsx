@@ -5,11 +5,12 @@ import {
   selectError,
 } from "../../redux/carDetails/selectors.js";
 import { getLocation } from "../../utils/getLocation.js"
+import Loader from "../Loader/Loader.jsx"
 
 export default function CarInfo({ car }) {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Loader />;
 
   if (!car || Object.keys(car).length === 0 || !car.address)
     return <p>No car info</p>;

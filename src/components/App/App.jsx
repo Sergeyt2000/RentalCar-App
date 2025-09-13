@@ -5,6 +5,7 @@ import css from "./App.module.css";
 // import CatalogPage from "../../pages/CatalogPage/CatalogPage";
 // import CarPage from "../../pages/CarPage/CarPage";
 import Header from "../Header/Header";
+import Loader from "../Loader/Loader.jsx"
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage.jsx"));
 const CatalogPage = lazy(() =>
@@ -17,14 +18,20 @@ function App() {
     <div className={css.container}>
       <Header />
       <div className={css.container}>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/catalog" element={<CatalogPage />} />
-          <Route path="/catalog/:id" element={<CarPage />} />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-      </Suspense>
+        <Suspense
+          fallback={
+            <div className={css.spinner}>
+              <Loader />
+            </div>
+          }
+        >
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/catalog" element={<CatalogPage />} />
+            <Route path="/catalog/:id" element={<CarPage />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </Suspense>
       </div>
     </div>
   );

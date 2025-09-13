@@ -9,6 +9,7 @@ import {
 } from "../../redux/carDetails/selectors.js";
 import CarInfo from "../../components/CarInfo/CarInfo.jsx"
 import BookCarForm from "../../components/BookCarForm/BookCarForm"
+import Loader from "../../components/Loader/Loader.jsx";
 
 export default function CarPage() {
   const { id } = useParams();
@@ -22,7 +23,7 @@ export default function CarPage() {
   
  return (
    <>
-     {isLoading && <div>Loading</div>}
+     {isLoading && <div className={css.spinner}><Loader /></div>}
      {!isLoading && car && Object.keys(car).length > 0 && (
        <div className={css.carPage}>
          <div className={css.leftColumn}>
