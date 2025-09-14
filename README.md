@@ -29,22 +29,6 @@
 2. **Catalog** - browse and filter cars
 3. **Car Details** - detailed information and booking
 
-### Car Filtering
-
-- Select brand from dropdown list
-- Set desired price per hour
-- Choose mileage range
-- Click "Search" to apply filters
-
-### Car Booking
-
-1. Navigate to car details page
-2. Fill out the booking form:
-   - Enter name and email
-   - Select rental dates
-   - Add comment (optional)
-3. Click the booking button
-
 ## Author
 
 **Sergii Tkachenko**
@@ -53,5 +37,5 @@ FullStack Web Developer with experience in React, Redux, Node.js and more. Speci
 
 **Contacts**
 
-GitHub: @Sergeyt2000
-Email: sergeyt2000@gmail.com
+*GitHub: @Sergeyt2000*
+*Email: sergeyt2000@gmail.com*
