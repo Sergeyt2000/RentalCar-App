@@ -5,19 +5,31 @@ export const fetchCars = createAsyncThunk(
   "cars/fetchCars",
   async (params = {}, thunkAPI) => {
     try {
-      const queryParams = { ...params };    
-      // Object.keys(queryParams).forEach(
-      //   (key) =>
-      //     (queryParams[key] === undefined ||
-      //       queryParams[key] === "" ||
-      //       queryParams[key] === null) &&
-      //     delete queryParams[key]
-      // );
-      const response = await axios.get("/cars", { params: queryParams });
-      
+      const response = await axios.get("/cars", {params});
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
+
+// Якщо пусті параметри потрібно видалити з запиту
+// export const fetchCars = createAsyncThunk(
+//   "cars/fetchCars",
+//   async (params = {}, thunkAPI) => {
+//     try {
+//       const queryParams = { ...params };    
+//       Object.keys(queryParams).forEach(
+//         (key) =>
+//           (queryParams[key] === undefined ||
+//             queryParams[key] === "" ||
+//             queryParams[key] === null) &&
+//           delete queryParams[key]
+//       );
+//       const response = await axios.get("/cars", { params: queryParams });      
+//       return response.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
