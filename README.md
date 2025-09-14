@@ -33,7 +33,9 @@
 
 **Sergii Tkachenko**
 
-FullStack Web Developer with experience in React, Redux, Node.js and more. Specializes in creating modern, responsive web interfaces with excellent user experience.
+ Enthusiastic and motivated Junior Fullstack Developer with a solid
+ foundation in HTML, CSS, and JavaScript, as well as familiarity with
+ frameworks like React.
 
 **Contacts**
 
