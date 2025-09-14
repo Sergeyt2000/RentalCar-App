@@ -21,26 +21,16 @@ const persistFavoritesConfig = {
   storage,
   whitelist: ["items"],
 };
-// const persistCarDetailsConfig = {
-//   key: "CurrentCar",
-//   storage,
-//   whitelist: ["item"],
-// };
 
 const persistedFavoritesReducer = persistReducer(
   persistFavoritesConfig,
   favoritesReducer
 );
-// const persistedCarDetails = persistReducer(
-//   persistCarDetailsConfig,
-//   carDetailsReducer
-// );
 
 export const store = configureStore({
   reducer: {
     cars: carsReducer,
     carDetails: carDetailsReducer,
-    // carDetails: persistedCarDetails,
     brands: brandsReducer,
     filters: filtersReducer,
     // favorites: favoritesReducer,

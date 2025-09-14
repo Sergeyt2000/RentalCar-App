@@ -7,14 +7,12 @@ import { selectPage, selectTotalPages } from "../../redux/cars/selectors.js";
 import { setPage } from "../../redux/cars/slice.js";
 import { fetchCars } from "../../redux/cars/operations.js";
 import { selectFilters } from "../../redux/filter/selectors.js";
-// import { selectIsLoading } from "../../redux/cars/selectors.js";
 
 export default function CarList({ cars }) {
   const dispatch = useDispatch();
   const page = useSelector(selectPage);
   const totalPages = useSelector(selectTotalPages);
   const filters = useSelector(selectFilters);
-  // const isLoading = useSelector(selectIsLoading);
   
   const listRef = useRef(null);
   const prevLengthRef = useRef(0);
@@ -34,7 +32,7 @@ export default function CarList({ cars }) {
 
 
   if (cars.length === 0) {
-    return <p>Car's not found</p>;
+    return <p className={css.noCar}>Car's not found</p>;
   }
   const onLoadMore = () => {
     if (page < totalPages) {
@@ -43,7 +41,6 @@ export default function CarList({ cars }) {
       dispatch(fetchCars({ ...filters, page: nextPage }));
     }
   };
-
   
   return (
     <div className={css.carListContainer}>

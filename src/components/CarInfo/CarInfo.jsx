@@ -6,10 +6,13 @@ import {
 } from "../../redux/carDetails/selectors.js";
 import { getLocation } from "../../utils/getLocation.js"
 import Loader from "../Loader/Loader.jsx"
+import { selectCarById } from "../../redux/carDetails/selectors.js"
 
-export default function CarInfo({ car }) {
+export default function CarInfo() {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
+  const car = useSelector(selectCarById);
+
   if (isLoading) return <Loader />;
 
   if (!car || Object.keys(car).length === 0 || !car.address)

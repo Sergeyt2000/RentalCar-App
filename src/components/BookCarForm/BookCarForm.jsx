@@ -8,9 +8,8 @@ export default function BookCarForm() {
   const handleSubmit = (values, { resetForm }) => {
     console.log(values);
     iziToast.success({
-      title: "OK",
       message: "Form was sent successfully!",
-      position: "topRight",
+      position: "bottomCenter",
     });
     resetForm();
   };

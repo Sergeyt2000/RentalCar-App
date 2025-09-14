@@ -11,3 +11,7 @@
 .caritem {
     width: calc((100% - (3*32px)) / 4);
 }
+.noCar {
+    margin-top: 150px;
+    text-align: center;
+}

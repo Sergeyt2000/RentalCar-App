@@ -3,35 +3,41 @@ import * as Yup from "yup";
 import css from "./Filter.module.css";
 import { useDispatch } from "react-redux";
 import { setFilters } from "../../redux/filter/slice.js";
-import { fetchCars } from "../../redux/cars/operations.js";
-
 
 const validationSchema = Yup.object({
-  mileageFrom: Yup.number()
+  minMileage: Yup.number()
     .min(0, "Mileage cannot be negative")
     .test(
-      "is-less-than-mileageTo",
+      "is-less-than-maxMileage",
       "Mileage From must be less than Mileage To",
       function (value) {
-        const { mileageTo } = this.parent;
-        return !mileageTo || !value || value <= mileageTo;
+        const { maxMileage } = this.parent;
+        return !value || !maxMileage || value <= maxMileage;
       }
     ),
-  mileageTo: Yup.number().min(0, "Mileage cannot be negative"),
+  maxMileage: Yup.number()
+    .min(0, "Mileage cannot be negative")
+    .test(
+      "is-greater-than-minMileage",
+      "Mileage To must be greater than Mileage From",
+      function (value) {
+        const { minMileage } = this.parent;
+        return !value || !minMileage || value >= minMileage;
+      }
+    ),
 });
 
 export default function Filter({ brands = [] }) {
   const dispatch = useDispatch();
   const initialValues = {
     brand: "",
-    price: "",
-    mileageFrom: "",
-    mileageTo: "",
+    rentalPrice: "",
+    minMileage: "",
+    maxMileage: "",
   };
   
   const handleSubmit = (values) => {
     dispatch(setFilters(values));
-    dispatch(fetchCars(values));
   };
   return (
     <div className={css.filterContainer}>
@@ -39,6 +45,7 @@ export default function Filter({ brands = [] }) {
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
+        enableReinitialize={true}
       >
         <Form className={css.filterForm}>
           <div className={css.filterField}>
@@ -56,10 +63,10 @@ export default function Filter({ brands = [] }) {
           </div>
 
           <div className={css.filterField}>
-            <label className={css.label} htmlFor="price">
+            <label className={css.label} htmlFor="rentalPrice">
               Price/1 hour
             </label>
-            <Field className={css.select} as="select" name="price">
+            <Field className={css.select} as="select" name="rentalPrice">
               <option value="">Choose a price</option>
               <option value="30">30$</option>
               <option value="40">40$</option>
@@ -81,22 +88,21 @@ export default function Filter({ brands = [] }) {
                 disabled
                 value="From"
               />
-              <Field
-                className={css.inputFrom}
-                name="mileageFrom"
-              ></Field>
-              <ErrorMessage
-                name="mileageFrom"
+              <Field className={css.inputFrom} name="minMileage"></Field>
+              {/* <ErrorMessage
+                name="minMileage"
                 component="div"
                 className={css.error}
-              />
-              <Field className={css.inputLabelTo} name="To" disabled value="To" />
+              /> */}
               <Field
-                className={css.inputTo}
-                name="mileageTo"
-              ></Field>
+                className={css.inputLabelTo}
+                name="To"
+                disabled
+                value="To"
+              />
+              <Field className={css.inputTo} name="maxMileage"></Field>
               <ErrorMessage
-                name="mileageTo"
+                name="maxMileage"
                 component="div"
                 className={css.error}
               />

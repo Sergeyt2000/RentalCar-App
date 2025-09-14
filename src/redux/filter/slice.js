@@ -2,9 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   brand: "",
-  mileageFrom: "",
-  mileageTo: "",
-  price: "",
+  rentalPrice: "",
+  minMileage: "",
+  maxMileage: "",
 };
 const filtersSlice = createSlice({
   name: "filters",
@@ -16,7 +16,7 @@ const filtersSlice = createSlice({
       return { ...state, ...payload };
     },
 
-      clearFilters: () => initialState,
+    clearFilters: () => initialState,
     //       (state, { payload }) => {
     //   Object.assign(state, initialState);
     //   return { ...state, ...payload };

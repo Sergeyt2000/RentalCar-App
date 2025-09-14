@@ -6,6 +6,9 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store, persistor } from "./redux/store.js";
 import { PersistGate } from "redux-persist/integration/react";
+import axios from "axios";
+
+axios.defaults.baseURL = "https://car-rental-api.goit.global";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

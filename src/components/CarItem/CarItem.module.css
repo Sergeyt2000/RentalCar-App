@@ -53,7 +53,6 @@
 .btn {
   width: 100%;
   border-radius: 12px;
-  /* padding: 12px 99px; */
   height: 44px;
   background-color: #3470ff;
   font-weight: 600;
@@ -66,14 +65,13 @@
 }
 .btn:hover,
 .btn:focus {
-  background-color: #0B44CD;
+  background-color: #0b44cd;
 }
 
 .heartIcon {
   width: 16px;
   height: 16px;
-  stroke: #f2f4f7;
-  fill: none;
+  fill: #f2f4f7;
 }
 
 .heartBtn {
@@ -87,5 +85,5 @@
 }
 .vertLine::before {
   content: "";
-    border-right: 1px solid #dadde1;
-  }
+  border-right: 1px solid #dadde1;
+}

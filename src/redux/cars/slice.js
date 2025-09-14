@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchCars } from "./operations.js";
-import { clearFilters } from "../filter/slice.js"
 
 const initialState = {
   items: {
@@ -31,21 +30,11 @@ const carsSlice = createSlice({
         state.isLoading = true;
         state.error = null;
       })
-      // .addCase(fetchCars.fulfilled, (state, action) => {
-      //   // state.items = action.payload;
-      //   state.items.cars = action.payload.cars;
-      //   state.items.totalCars = action.payload.totalCars;
-      //   state.items.totalPages = action.payload.totalPages;
-      //   state.isLoading = false;
-      //   clearFilters();
-      // })
       .addCase(fetchCars.fulfilled, (state, action) => {
-        const { page } = action.meta.arg || {};
-        const isFirstPage = page <= 1;
-
-        if (isFirstPage) {
+        const { page } = action.meta.arg || {};        
+        
+        if (page <= 1) {
           state.items.cars = action.payload.cars;
-          clearFilters(); 
         } else {
           state.items.cars = [...state.items.cars, ...action.payload.cars];
         }
@@ -66,3 +55,4 @@ const carsSlice = createSlice({
 
 export const { setPage, resetCars } = carsSlice.actions;
 export default carsSlice.reducer;
+

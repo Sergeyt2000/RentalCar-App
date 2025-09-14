@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import css from "./CarPage.module.css";
-import { Navigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCarById } from "../../redux/carDetails/operations.js";
 import {
@@ -18,7 +18,9 @@ export default function CarPage() {
   const isLoading = useSelector(selectIsLoading);  
   
     useEffect(() => {
-    if (id) {dispatch(fetchCarById(id));}
+      if (id) {
+        dispatch(fetchCarById(id));      
+    }
   }, [dispatch, id]);
   
  return (
