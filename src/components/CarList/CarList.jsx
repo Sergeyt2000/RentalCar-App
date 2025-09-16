@@ -7,17 +7,19 @@ import {
   selectPage,
   selectTotalPages,
   selectIsLoading,
+  selectCars,
 } from "../../redux/cars/selectors.js";
 import { setPage } from "../../redux/cars/slice.js";
 import { fetchCars } from "../../redux/cars/operations.js";
 import { selectFilters } from "../../redux/filter/selectors.js";
 
-export default function CarList({ cars }) {
+export default function CarList() {
   const dispatch = useDispatch();
   const page = useSelector(selectPage);
   const totalPages = useSelector(selectTotalPages);
   const filters = useSelector(selectFilters);
   const isLoading = useSelector(selectIsLoading);
+  const cars = useSelector(selectCars);
   
   const listRef = useRef(null);
   const prevLengthRef = useRef(0);
