@@ -9,7 +9,7 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import brandsReducer from "./brands/slice";
+// import brandsReducer from "./brands/slice";
 import carsReducer from "./cars/slice";
 import filtersReducer from "./filter/slice";
 import favoritesReducer from "./favorites/slice";
@@ -31,7 +31,7 @@ export const store = configureStore({
   reducer: {
     cars: carsReducer,
     carDetails: carDetailsReducer,
-    brands: brandsReducer,
+    // brands: brandsReducer,
     filters: filtersReducer,
     // favorites: favoritesReducer,
     favorites: persistedFavoritesReducer,

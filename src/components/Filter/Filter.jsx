@@ -3,6 +3,8 @@ import * as Yup from "yup";
 import css from "./Filter.module.css";
 import { useDispatch } from "react-redux";
 import { setFilters } from "../../redux/filter/slice.js";
+import { useState, useEffect } from "react";
+import { getBrands } from "../../services/brands.js";
 
 const validationSchema = Yup.object({
   minMileage: Yup.number()
@@ -27,15 +29,31 @@ const validationSchema = Yup.object({
     ),
 });
 
-export default function Filter({ brands = [] }) {
+// export default function Filter({ brands = [] }) {
+export default function Filter() {
   const dispatch = useDispatch();
+
+  const [brands, setBrands] = useState([]);
+  useEffect(() => {
+    const fetchBrands = async () => {
+      try {
+        const response = await getBrands();
+        setBrands(response);
+      } catch (error) {
+        console.log("Failed to load brands", error);
+      }
+    };
+
+    fetchBrands();
+  }, []);
+
   const initialValues = {
     brand: "",
     rentalPrice: "",
     minMileage: "",
     maxMileage: "",
   };
-  
+
   const handleSubmit = (values) => {
     dispatch(setFilters(values));
   };
