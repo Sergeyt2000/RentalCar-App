@@ -54,6 +54,11 @@
   line-height: 1.25;
   margin-top: 24px;
   cursor: pointer;
+  transition: background-color 200ms ease-in-out;
+}
+.button:hover,
+.button:focus {
+  background-color: #0B44CD;
 }
 .error {
   color: rgb(145, 4, 4);
