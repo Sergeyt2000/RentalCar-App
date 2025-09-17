@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { initialValues, validationSchema } from "./formSchema.js";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
+import MyDatePicker from "./MyDatePicker/MyDatePicker.jsx"
 
 export default function BookCarForm() {
   const handleSubmit = (values, { resetForm }) => {
@@ -42,8 +43,9 @@ export default function BookCarForm() {
             <div className={css.field}>
               <Field
                 name="bookingDate"
-                placeholder="Booking date*"
+                // placeholder="Booking date"
                 className={css.input}
+                component={MyDatePicker}
               />
               <ErrorMessage
                 name="bookingDate"

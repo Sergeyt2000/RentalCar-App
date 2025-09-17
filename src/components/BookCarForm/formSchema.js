@@ -14,7 +14,7 @@ export const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email("Invalid email format")
     .required("Email is required"),
-  bookingDate: Yup.string().required("Booking date is required"),
+  bookingDate: Yup.date().nullable(),
   comment: Yup.string().max(1000, "Comment must be maximum 1000 characters"),
 });
 

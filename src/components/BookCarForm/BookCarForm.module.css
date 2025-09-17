@@ -27,7 +27,9 @@
   gap: 16px;
 }
 .input {
-  width: 100%;
+  box-sizing: border-box;
+  width: 576px;
+  /* width: 100%; */
   padding: 14px 20px;
   font-size: 16px;
   line-height: 1.25;
@@ -36,6 +38,7 @@
   border: none;
   outline: none;
   border-radius: 12px;
+  resize: none;
 }
 .button {
   border-radius: 12px;
