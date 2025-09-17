@@ -82,7 +82,12 @@
   border: none;
   padding: 0;
   cursor: pointer;
+  transition: scale 200ms ease-in-out;
 }
+.heartBtn:hover {
+  scale: 1.3;
+}
+
 .vertLine::before {
   content: "";
   border-right: 1px solid #dadde1;

@@ -9,7 +9,6 @@ import Select from "react-select";
 import { customSelectBrandStyles } from "./customSelectBrandStyles.js";
 import { customSelectPriceStyles } from "./customSelectPriceStyles.js";
 import CustomIndicator from "./CustomIndicator/CustomIndicator.jsx"
-// import { components } from "react-select";
 
 const validationSchema = Yup.object({
   minMileage: Yup.number()
@@ -102,7 +101,10 @@ export default function Filter() {
                 options={brandOptions}
                 placeholder="Choose a brand"
                 isClearable
-                components={{ DropdownIndicator: CustomIndicator }}
+                components={{
+                  DropdownIndicator: CustomIndicator,
+                  IndicatorSeparator: () => null,
+                }}
                 styles={customSelectBrandStyles}
               />
               {/* <Field className={css.select} as="select" name="brand">
@@ -132,7 +134,10 @@ export default function Filter() {
                 options={priceOptions}
                 placeholder="Choose a price"
                 isClearable
-                components={{ DropdownIndicator: CustomIndicator }}
+                components={{
+                  DropdownIndicator: CustomIndicator,
+                  IndicatorSeparator: () => null,
+                }}
                 styles={customSelectPriceStyles}
               />
               {/* <Field className={css.select} as="select" name="rentalPrice">
