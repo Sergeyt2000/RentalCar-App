@@ -9,6 +9,7 @@
   display: flex;
   gap: 16px;
   align-items: center;
+  align-items: start;
 }
 .filterField {
   display: flex;
@@ -103,7 +104,7 @@ box-sizing: border-box;
   color: #fff;
   border: none;
   cursor: pointer;
-  margin-top: auto;
+  margin-top: 24px;
   transition: background-color 200ms ease-in-out;
 }
 .btn:hover,

@@ -8,11 +8,12 @@ import { getBrands } from "../../services/brands.js";
 import Select from "react-select";
 import { customSelectBrandStyles } from "./customSelectBrandStyles.js";
 import { customSelectPriceStyles } from "./customSelectPriceStyles.js";
-import CustomIndicator from "./CustomIndicator/CustomIndicator.jsx"
+import CustomIndicator from "./CustomIndicator/CustomIndicator.jsx";
 
 const validationSchema = Yup.object({
   minMileage: Yup.number()
     .min(0, "Mileage cannot be negative")
+    .typeError("Mileage must be a number")
     .test(
       "is-less-than-maxMileage",
       "Mileage From must be less than Mileage To",
@@ -23,6 +24,7 @@ const validationSchema = Yup.object({
     ),
   maxMileage: Yup.number()
     .min(0, "Mileage cannot be negative")
+    .typeError("Mileage must be a number")
     .test(
       "is-greater-than-minMileage",
       "Mileage To must be greater than Mileage From",
@@ -106,14 +108,6 @@ export default function Filter() {
                 }}
                 styles={customSelectBrandStyles}
               />
-              {/* <Field className={css.select} as="select" name="brand">
-                <option value="">Choose a brand</option>
-                {brands.map((brand) => (
-                  <option key={brand} value={brand}>
-                    {brand}
-                  </option>
-                ))}
-              </Field> */}
             </div>
 
             <div className={css.filterField}>
@@ -139,22 +133,13 @@ export default function Filter() {
                 }}
                 styles={customSelectPriceStyles}
               />
-              {/* <Field className={css.select} as="select" name="rentalPrice">
-              <option value="">Choose a price</option>
-              <option value="30">30$</option>
-              <option value="40">40$</option>
-              <option value="50">50$</option>
-              <option value="60">60$</option>
-              <option value="70">70$</option>
-              <option value="80">80$</option>
-            </Field> */}
             </div>
 
             <div className={css.filterField}>
               <label className={css.label} htmlFor="mileageFrom">
                 Car mileage / km
               </label>
-              <div>
+              <div className={css.mileageFields}>
                 <Field
                   className={css.inputLabelFrom}
                   name="From"
@@ -162,11 +147,7 @@ export default function Filter() {
                   value="From"
                 />
                 <Field className={css.inputFrom} name="minMileage"></Field>
-                {/* <ErrorMessage
-                name="minMileage"
-                component="div"
-                className={css.error}
-              /> */}
+                
                 <Field
                   className={css.inputLabelTo}
                   name="To"
@@ -174,6 +155,11 @@ export default function Filter() {
                   value="To"
                 />
                 <Field className={css.inputTo} name="maxMileage"></Field>
+                <ErrorMessage
+                  name="minMileage"
+                  component="div"
+                  className={css.error}
+                />
                 <ErrorMessage
                   name="maxMileage"
                   component="div"
