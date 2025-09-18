@@ -73,7 +73,6 @@ export default function Filter() {
   }));
 
   const handleSubmit = (values) => {
-    console.log("values", values);
     dispatch(setFilters(values));
   };
   return (
