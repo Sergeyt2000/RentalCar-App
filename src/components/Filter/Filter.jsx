@@ -9,6 +9,7 @@ import Select from "react-select";
 import { customSelectBrandStyles } from "./customSelectBrandStyles.js";
 import { customSelectPriceStyles } from "./customSelectPriceStyles.js";
 import CustomIndicator from "./CustomIndicator/CustomIndicator.jsx";
+import { NumericFormat } from "react-number-format";
 
 const validationSchema = Yup.object({
   minMileage: Yup.number()
@@ -74,7 +75,7 @@ export default function Filter() {
     label: brand,
   }));
 
-  const handleSubmit = (values) => {
+  const handleSubmit = (values) => { 
     dispatch(setFilters(values));
   };
   return (
@@ -146,15 +147,45 @@ export default function Filter() {
                   disabled
                   value="From"
                 />
-                <Field className={css.inputFrom} name="minMileage"></Field>
-                
+                {/* <Field className={css.inputFrom} name="minMileage"></Field> */}
+                <Field name="minMileage">
+                  {({ field }) => (
+                    <NumericFormat
+                      name={field.name}
+                      className={css.inputFrom}
+                      thousandSeparator=","
+                      value={field.value}
+                      onValueChange={(values) => {
+                        setFieldValue("minMileage", values.floatValue);
+                      }}
+                      allowNegative={false}
+                      onBlur={field.onBlur}
+                    />
+                  )}
+                </Field>
+
                 <Field
                   className={css.inputLabelTo}
                   name="To"
                   disabled
                   value="To"
                 />
-                <Field className={css.inputTo} name="maxMileage"></Field>
+                {/* <Field className={css.inputTo} name="maxMileage"></Field> */}
+                <Field name="maxMileage">
+                  {({ field }) => (
+                    <NumericFormat
+                      name={field.name}
+                      className={css.inputTo}
+                      thousandSeparator=","
+                      value={field.value}
+                      onValueChange={(values) => {
+                        setFieldValue("maxMileage", values.floatValue);
+                      }}
+                      allowNegative={false}
+                      onBlur={field.onBlur}
+                    />
+                  )}
+                </Field>
                 <ErrorMessage
                   name="minMileage"
                   component="div"
